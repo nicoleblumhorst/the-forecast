@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import WeatherTile from './WeatherTile';
-import { DailyForcast } from '../../../models/DailyForcast';
+import { DailyForcast } from '../../../models/rest/weather/DailyForcast';
 import { useRouteMatch } from 'react-router';
 import {
   Button,

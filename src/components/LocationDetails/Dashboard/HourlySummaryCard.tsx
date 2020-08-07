@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import WeatherTile from './WeatherTile';
-import { CurrentWeather } from '../../../models/CurrentWeather';
+import { CurrentWeather } from '../../../models/rest/weather/CurrentWeather';
 import { useRouteMatch } from 'react-router';
 import {
   Button,

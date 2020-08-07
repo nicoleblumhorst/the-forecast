@@ -1,5 +1,5 @@
 import React from 'react';
-import { DailyForcast } from '../../../models/DailyForcast';
+import { DailyForcast } from '../../../models/rest/weather/DailyForcast';
 import {
   Table,
   TableBody,

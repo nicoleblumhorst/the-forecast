@@ -3,7 +3,7 @@ import Moment from 'react-moment';
 import { TableCell, TableRow } from '@material-ui/core';
 import Temperature from '../../shared/Temperature';
 import Percentage from '../../shared/Percentage';
-import { CurrentWeather } from '../../../models/CurrentWeather';
+import { CurrentWeather } from '../../../models/rest/weather/CurrentWeather';
 
 type Props = {
   data: CurrentWeather;

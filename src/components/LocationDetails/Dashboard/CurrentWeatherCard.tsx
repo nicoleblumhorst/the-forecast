@@ -2,22 +2,23 @@ import React from 'react';
 import { CardHeader } from '@material-ui/core';
 import moment from 'moment';
 import Temperature from '../../shared/Temperature';
-import { CurrentWeather } from '../../../models/CurrentWeather';
+import { CurrentWeather } from '../../../models/rest/weather/CurrentWeather';
 import { DashboardCard, CurrentWeatherCardContent } from '../styles';
 import { LargeIcon } from '../../shared/styles';
 import Percentage from '../../shared/Percentage';
 import Moment from 'react-moment';
 
 interface Props {
-  data: CurrentWeather | undefined;
+  name?: string;
+  data?: CurrentWeather;
 }
 
-const CurrentWeatherCard = ({ data }: Props) => {
+const CurrentWeatherCard = ({ data, name }: Props) => {
   const asOf = `As of ${moment((data?.dt || 0) * 1000).format('M/D h:mmA')}`;
 
   return (
     <DashboardCard variant="outlined">
-      <CardHeader title="Current Weather" subheader={asOf} />
+      <CardHeader title={name ? `Current Weather in ${name}` : `Current Weather`} subheader={asOf} />
       <CurrentWeatherCardContent className="weather-tile-container">
         <div>
           <LargeIcon

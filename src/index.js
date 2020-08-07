@@ -5,12 +5,22 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import * as serviceWorker from './serviceWorker';
 import App from './components/App';
 import { theme } from './theme';
+import { WeatherReducer } from './reducers/weather';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+const store = createStore(
+  WeatherReducer,
+  window.devToolsExtention && window.devToolsExtention()
+);
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <App />
+      <Provider store={store}>
+        <CssBaseline />
+        <App />
+      </Provider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

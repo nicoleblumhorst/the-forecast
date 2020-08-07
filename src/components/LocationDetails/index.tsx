@@ -6,12 +6,20 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import { OneCallRS } from '../../models/OneCallRS';
+import { OneCallRS } from '../../models/rest/weather/OneCallRS';
 import Hourly from './Hourly';
 import Dashboard from './Dashboard';
 import Daily from './Daily';
 import { WeatherService } from '../../ultilities/WeatherService';
 import NotFound from '../NotFound';
+import { useDispatch, useSelector } from 'react-redux';
+import { WeatherState } from '../../models/state/WeatherState';
+import { LocationWeather } from '../../models/state/LocationWeather';
+import {
+  updateLocationData,
+  updateLocationSummary,
+} from '../../actions/weather';
+import { CurrentWeatherRS } from '../../models/rest/weather/CurrentWeatherRS';
 
 interface MatchProps {
   lat: string;
@@ -20,18 +28,18 @@ interface MatchProps {
 
 const LocationDetails = ({ match }: RouteComponentProps<MatchProps>) => {
   const weatherService = new WeatherService();
-  const [locationData, setLocationData] = useState<OneCallRS | undefined>(
-    undefined
-  );
+  const [location, setLocation] = useState<OneCallRS>();
 
   useEffect(() => {
     weatherService
       .getOneCall(match.params.lat, match.params.lon)
       .then((response: OneCallRS) => {
-        setLocationData(response);
+        setLocation(response);
       })
-      .catch((error) => console.log('Error fetching and parsing data', error));
-  }, [match]);
+      .catch((error) =>
+        console.error('Error fetching and parsing data', error)
+      );
+  }, []);
 
   return (
     <div className="details-container">
@@ -40,15 +48,15 @@ const LocationDetails = ({ match }: RouteComponentProps<MatchProps>) => {
           <Route
             exact
             path={match.path}
-            render={() => <Dashboard data={locationData} />}
+            render={() => <Dashboard data={location} />}
           />
           <Route
             path={`${match.path}/by/hour`}
-            render={() => <Hourly data={locationData?.hourly} />}
+            render={() => <Hourly data={location?.hourly} />}
           />
           <Route
             path={`${match.path}/by/day`}
-            render={() => <Daily data={locationData?.daily} />}
+            render={() => <Daily data={location?.daily} />}
           />
           <Route component={NotFound} />
         </Switch>

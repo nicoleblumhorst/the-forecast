@@ -11,7 +11,7 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Temperature from '../../shared/Temperature';
 import Percentage from '../../shared/Percentage';
-import { DailyForcast } from '../../../models/DailyForcast';
+import { DailyForcast } from '../../../models/rest/weather/DailyForcast';
 import { CollapsableTableRow } from '../styles';
 import { makeStyles } from '@material-ui/core/styles';
 import CollapsedRow from './CollapsedRow';

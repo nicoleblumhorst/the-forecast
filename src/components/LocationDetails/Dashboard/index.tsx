@@ -2,7 +2,7 @@ import React from 'react';
 import HourlySummaryCard from './HourlySummaryCard';
 import WeeklySummaryCard from './WeeklySummaryCard';
 
-import { OneCallRS } from '../../../models/OneCallRS';
+import { OneCallRS } from '../../../models/rest/weather/OneCallRS';
 import CurrentWeatherCard from './CurrentWeatherCard';
 
 interface Props {

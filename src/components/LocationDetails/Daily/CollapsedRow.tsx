@@ -1,14 +1,9 @@
 import React from 'react';
 import Moment from 'react-moment';
-import {
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-} from '@material-ui/core';
+import { TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import Temperature from '../../shared/Temperature';
 import Percentage from '../../shared/Percentage';
-import { DailyForcast } from '../../../models/DailyForcast';
+import { DailyForcast } from '../../../models/rest/weather/DailyForcast';
 import { HalfTableStyled, OtherHalfStyled } from '../styles';
 import { FlexDiv } from '../../Landing/styles';
 

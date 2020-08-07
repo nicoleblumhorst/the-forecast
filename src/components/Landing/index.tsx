@@ -1,31 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Location from './Location';
-import { CurrentWeatherRS } from '../../models/CurrentWeatherRS';
+import { CurrentWeatherRS } from '../../models/rest/weather/CurrentWeatherRS';
 import { FlexDiv } from './styles';
 import { WeatherService } from '../../ultilities/WeatherService';
 import { Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
-
-const LOCATION_IDS = [
-  '4407237', // Saint Peters, MO
-  '2643743', // London, UK
-  '2193732', // Christchurch, NZ
-];
+import { updateLocationSummary } from '../../actions/weather';
+import { useDispatch, useSelector } from 'react-redux';
+import { WeatherState } from '../../models/state/WeatherState';
 
 function Landing() {
   const weatherService = new WeatherService();
-  const [locationData, setLocationData] = useState<CurrentWeatherRS[]>([]);
+  const locations = useSelector<WeatherState, WeatherState['locations']>(
+    (state) => state.locations
+  );
+  const dispatch = useDispatch();
+
+  const updateSummary = (id: number, summary: CurrentWeatherRS) => {
+    dispatch(updateLocationSummary(id, summary));
+  };
 
   useEffect(() => {
-    LOCATION_IDS.forEach((id, index) => {
+    locations.forEach((location, index) => {
       weatherService
-        .getWeather(id)
+        .getWeather(location.latitude, location.longitude)
         .then((response) => {
-          setLocationData((prevLocationData) => [
-            ...prevLocationData,
-            response,
-          ]);
+          updateSummary(index, response);
         })
         .catch((error) =>
           console.log('Error fetching and parsing data', error)
@@ -36,12 +37,16 @@ function Landing() {
   return (
     <>
       <FlexDiv>
-        {locationData.map((location) => (
-          <Location locationData={location} key={location.id} />
+        {locations.map((location) => (
+          <Location
+            id={location.id}
+            locationData={location.summary}
+            key={location.id}
+          />
         ))}
       </FlexDiv>
       <Fab
-        style={{ position: 'absolute', bottom: '20px', right: '20px' }}
+        style={{ position: 'fixed', bottom: '20px', right: '20px' }}
         color="secondary"
         component={Link}
         to={`/add`}

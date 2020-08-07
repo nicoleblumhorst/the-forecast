@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { Card, CardContent } from '@material-ui/core';
 
+// font-family: league-gothic, sans-serif;
+// font-weight: 400;
+// font-style: normal;
+
 export const StyledCard = styled(Card)`
   color: black;
   width: 30%;
-  font-family: league-gothic, sans-serif;
-  font-weight: 400;
-  font-style: normal;
   text-align: center;
 
   @media (max-width: 700px) {
@@ -28,19 +29,22 @@ export const Divider = styled.div`
 export const StyledCardContent = styled(CardContent)`
   padding: 10px;
 
-  h2 {
-    text-transform: uppercase;
-    font-size: 40px;
+  h3 {
+    font-size: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   h4 {
     text-transform: uppercase;
-    font-size: 30px;
+    color: gray;
+    font-size: 20px;
   }
   i {
     margin-bottom: 10px;
   }
   p,
-  h2,
+  h3,
   h4 {
     margin: 0;
   }
@@ -62,7 +66,7 @@ export const GridDiv = styled.div`
     'feels-like humidity';
 
   p {
-    font-size: 20px;
+    font-size: 16px;
   }
   .temp {
     font-size: 40px;

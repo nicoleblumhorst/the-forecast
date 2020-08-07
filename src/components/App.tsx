@@ -7,20 +7,23 @@ import Landing from './Landing';
 import LocationDetails from './LocationDetails';
 import NotFound from './NotFound';
 import AddLocation from './AddLocation';
+import ErrorBoundary from './ErrorBoundary';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route path="/details/:lat/:lon" component={LocationDetails} />
-          <Route path="/add" component={AddLocation} />
-          <Route component={NotFound} />
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route path="/details/:lat/:lon" component={LocationDetails} />
+            <Route path="/add" component={AddLocation} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }
 

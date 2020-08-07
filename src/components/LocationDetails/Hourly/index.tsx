@@ -1,5 +1,5 @@
 import React from 'react';
-import { CurrentWeather } from '../../../models/CurrentWeather';
+import { CurrentWeather } from '../../../models/rest/weather/CurrentWeather';
 import Paper from '@material-ui/core/Paper';
 import {
   Table,
