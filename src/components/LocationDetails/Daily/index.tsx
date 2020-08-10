@@ -10,21 +10,24 @@ import {
 } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import Row from './Row';
+import {useTranslation} from "react-i18next";
 
 type Props = {
   data: DailyForcast[] | undefined;
 };
 
 function Daily({ data }: Props) {
+  const { t } = useTranslation();
+
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Day</TableCell>
-            <TableCell align="center">Temperature</TableCell>
-            <TableCell align="center">Description</TableCell>
-            <TableCell align="center">Precipitation</TableCell>
+            <TableCell align="center">{t('location-details.day')}</TableCell>
+            <TableCell align="center">{t('location-details.temperature')}</TableCell>
+            <TableCell align="center">{t('location-details.description')}</TableCell>
+            <TableCell align="center">{t('location-details.precipitation')}</TableCell>
             <TableCell />
           </TableRow>
         </TableHead>

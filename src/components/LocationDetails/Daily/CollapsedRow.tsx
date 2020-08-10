@@ -6,29 +6,32 @@ import Percentage from '../../shared/Percentage';
 import { DailyForcast } from '../../../models/rest/weather/DailyForcast';
 import { HalfTableStyled, OtherHalfStyled } from '../styles';
 import { FlexDiv } from '../../Landing/styles';
+import {useTranslation} from "react-i18next";
 
 type Props = {
   data: DailyForcast;
 };
 
 function CollapsedRow({ data }: Props) {
+  const { t } = useTranslation();
+
   return (
     <React.Fragment>
-      <h4>Details</h4>
+      <h4>{t('location-details.details')}</h4>
       <FlexDiv>
         <HalfTableStyled>
           <TableHead>
             <TableRow>
               <TableCell></TableCell>
-              <TableCell>Morning</TableCell>
-              <TableCell>Day</TableCell>
-              <TableCell>Evening</TableCell>
-              <TableCell>Night</TableCell>
+              <TableCell>{t('location-details.morning')}</TableCell>
+              <TableCell>{t('location-details.day')}</TableCell>
+              <TableCell>{t('location-details.evening')}</TableCell>
+              <TableCell>{t('location-details.night')}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             <TableRow>
-              <TableCell>Actual</TableCell>
+              <TableCell>{t('location-details.actual')}</TableCell>
               <TableCell>
                 <Temperature temp={data.temp.morn} />
               </TableCell>
@@ -43,7 +46,7 @@ function CollapsedRow({ data }: Props) {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Feels Like</TableCell>
+              <TableCell>{t('common.feels-like')}</TableCell>
               <TableCell>
                 <Temperature temp={data.feels_like.morn} />
               </TableCell>

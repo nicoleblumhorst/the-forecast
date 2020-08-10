@@ -39,9 +39,8 @@ function Landing() {
       <FlexDiv>
         {locations.map((location) => (
           <Location
-            id={location.id}
-            locationData={location.summary}
             key={location.id}
+            locationData={location.summary}
           />
         ))}
       </FlexDiv>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Location } from '../../models/rest/location/Location';
 import { Button, TableCell, TableRow } from '@material-ui/core';
+import {useTranslation} from "react-i18next";
 
 type Props = {
   location: Location;
@@ -8,6 +9,8 @@ type Props = {
 };
 
 const ResultTableRow = (props: Props) => {
+  const { t } = useTranslation();
+
   return (
     <TableRow>
       <TableCell>{props.location.label}</TableCell>
@@ -17,9 +20,7 @@ const ResultTableRow = (props: Props) => {
           color="secondary"
           disableElevation
           onClick={() => props.onSelect(props.location)}
-        >
-          This one!
-        </Button>
+        >{t('add-location.this-one')}</Button>
       </TableCell>
     </TableRow>
   );

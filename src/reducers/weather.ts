@@ -6,8 +6,7 @@ import {
   UPDATE_LOCATION_DATA,
   UPDATE_LOCATION_SUMMARY,
   WeatherActionTypes,
-} from '../actiontypes/weather';
-import { act } from 'react-dom/test-utils';
+} from '../actions/weather';
 
 const initialState = {
   locations: [
@@ -32,10 +31,7 @@ export function WeatherReducer(
 
     case REMOVE_LOCATION:
       return {
-        locations: [
-          ...state.locations.splice(0, action.index),
-          ...state.locations.slice(action.index + 1),
-        ],
+        locations: state.locations.filter((location) => (location.id !== action.id)),
       };
 
     case UPDATE_LOCATION_SUMMARY:

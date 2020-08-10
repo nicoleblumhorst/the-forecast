@@ -6,13 +6,15 @@ import { Button, CardActionArea } from '@material-ui/core';
 import { Divider, GridDiv, StyledCard, StyledCardContent } from './styles';
 import { CardActionsOnTheRight, LargeIcon } from '../shared/styles';
 import Percentage from '../shared/Percentage';
+import {useTranslation} from "react-i18next";
 
 type Props = {
-  id: number;
   locationData: CurrentWeatherRS | undefined;
 };
 
-function Location({ id, locationData }: Props) {
+function Location({ locationData }: Props) {
+  const { t } = useTranslation();
+
   if (!locationData) {
     return <StyledCard variant="outlined">Loading...</StyledCard>;
   }
@@ -31,16 +33,16 @@ function Location({ id, locationData }: Props) {
             <Temperature temp={locationData.main.temp} />
           </span>
           <p className="feels-like">
-            Feels like <Temperature temp={locationData.main.feels_like} />
+            {t('common.feels-like')}<Temperature temp={locationData.main.feels_like} />
           </p>
           <p className="high">
-            High <Temperature temp={locationData.main.temp_max} />
+            {t('landing.high')}<Temperature temp={locationData.main.temp_max} />
           </p>
           <p className="low">
-            Low <Temperature temp={locationData.main.temp_min} />
+            {t('landing.low')}<Temperature temp={locationData.main.temp_min} />
           </p>
           <p className="humidity">
-            Humidity <Percentage percentage={locationData.main.humidity} />
+            {t('common.humidity')} <Percentage percentage={locationData.main.humidity} />
           </p>
         </GridDiv>
       </StyledCardContent>
@@ -52,9 +54,7 @@ function Location({ id, locationData }: Props) {
             disableElevation
             component={Link}
             to={`/details/${locationData.coord.lat}/${locationData.coord.lon}`}
-          >
-            Get More Info
-          </Button>
+          >{t('more-info')}</Button>
         </CardActionsOnTheRight>
       </CardActionArea>
     </StyledCard>

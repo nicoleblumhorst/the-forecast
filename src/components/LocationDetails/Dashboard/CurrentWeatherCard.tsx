@@ -7,6 +7,7 @@ import { DashboardCard, CurrentWeatherCardContent } from '../styles';
 import { LargeIcon } from '../../shared/styles';
 import Percentage from '../../shared/Percentage';
 import Moment from 'react-moment';
+import {useTranslation} from "react-i18next";
 
 interface Props {
   name?: string;
@@ -14,11 +15,12 @@ interface Props {
 }
 
 const CurrentWeatherCard = ({ data, name }: Props) => {
-  const asOf = `As of ${moment((data?.dt || 0) * 1000).format('M/D h:mmA')}`;
+  const { t } = useTranslation();
+  const asOf = moment((data?.dt || 0) * 1000).format('M/D h:mmA');
 
   return (
     <DashboardCard variant="outlined">
-      <CardHeader title={name ? `Current Weather in ${name}` : `Current Weather`} subheader={asOf} />
+      <CardHeader title={name ? t('location-details.current-weather-in', {location: name}) : t('location-details.current-weather')} subheader={t('location-details.as-of', {time: asOf})} />
       <CurrentWeatherCardContent className="weather-tile-container">
         <div>
           <LargeIcon
@@ -29,19 +31,19 @@ const CurrentWeatherCard = ({ data, name }: Props) => {
         <div>
           <Temperature temp={data?.temp} />
           <p>
-            Feels Like <Temperature temp={data?.feels_like} />
+            {t('common.feels-like')} <Temperature temp={data?.feels_like} />
           </p>
           <p>
-            Humidity <Percentage percentage={data?.humidity} />
+            {t('common.humidity')} <Percentage percentage={data?.humidity} />
           </p>
         </div>
         <div>
-          <p>Wind Direction: {data?.wind_deg}</p>
-          <p>Wind Speed: {data?.wind_speed} mph</p>
+          <p>{t('location-details.wind-direction')} {data?.wind_deg}</p>
+          <p>{t('location-details.wind-speed')} {data?.wind_speed} mph</p>
         </div>
         <div>
           <p>
-            Sunrise:{' '}
+            {t('location-details.sunrise')}
             <Moment
               className="time"
               date={new Date((data?.sunrise || 0) * 1000)}
@@ -49,7 +51,7 @@ const CurrentWeatherCard = ({ data, name }: Props) => {
             />
           </p>
           <p>
-            Sunset:{' '}
+            {t('location-details.sunset')}
             <Moment
               className="time"
               date={new Date((data?.sunset || 0) * 1000)}

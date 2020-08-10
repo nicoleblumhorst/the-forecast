@@ -10,22 +10,25 @@ import {
   TableRow,
 } from '@material-ui/core';
 import Row from './Row';
+import {useTranslation} from "react-i18next";
 
 type Props = {
   data: CurrentWeather[] | undefined;
 };
 
 function Hourly({ data }: Props) {
+  const { t } = useTranslation();
+
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Time</TableCell>
-            <TableCell align="center">Temperature (Feels Like)</TableCell>
-            <TableCell align="center">Description</TableCell>
-            <TableCell align="center">Precipitation</TableCell>
-            <TableCell align="center">Humidity</TableCell>
+            <TableCell align="center">{t('location-details.time')}</TableCell>
+            <TableCell align="center">{t('location-details.temperature')} ({t('common.feels-like')})</TableCell>
+            <TableCell align="center">{t('location-details.description')}</TableCell>
+            <TableCell align="center">{t('location-details.precipitation')}</TableCell>
+            <TableCell align="center">{t('common.humidity')}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

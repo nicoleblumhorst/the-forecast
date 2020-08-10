@@ -12,14 +12,6 @@ import Dashboard from './Dashboard';
 import Daily from './Daily';
 import { WeatherService } from '../../ultilities/WeatherService';
 import NotFound from '../NotFound';
-import { useDispatch, useSelector } from 'react-redux';
-import { WeatherState } from '../../models/state/WeatherState';
-import { LocationWeather } from '../../models/state/LocationWeather';
-import {
-  updateLocationData,
-  updateLocationSummary,
-} from '../../actions/weather';
-import { CurrentWeatherRS } from '../../models/rest/weather/CurrentWeatherRS';
 
 interface MatchProps {
   lat: string;

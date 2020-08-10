@@ -1,0 +1,48 @@
+{
+  "title": "La Previsión",
+  "search": "Buscar",
+  "more-info": "Más Información",
+  "common": {
+    "feels-like": "Siente Como",
+    "humidity": "Humedad"
+  },
+  "error": {
+    "something-went-wrong": "Algo salió mal."
+  },
+  "not-found": {
+    "page-not-found": "Página No Encontrada",
+    "page-not-found-detail": "No tengo idea de lo que estabas buscando, pero no está aquí"
+  },
+  "add-location": {
+    "location-label": "Ubicación",
+    "location-placeholder": "prueba London o 123 Main Street, New York City",
+    "multiple-locations-found": "Encontramos algunas ubicaciones que coincidieron con su búsqueda. Háganos saber para cuál le gustaría ver el clima.",
+    "only-three-locations-supported": "Actualmente solo admitimos 3 ubicaciones a la vez, elija una ubicación para eliminar antes de agregar una nueva ubicación.",
+    "this-one": "¡Éste!"
+  },
+  "landing": {
+    "high": "Alta",
+    "low": "Baja"
+  },
+  "location-details" : {
+    "current-weather": "Clima Actual",
+    "current-weather-in": "El tiempo actual en {{location}}",
+    "as-of": "A partir de {{time}}",
+    "weather-hour": "Clima por Hora",
+    "weather-daily": "Clima para el Resto de la Semana",
+    "wind-direction": "Dirección del Viento",
+    "wind-speed": "Velocidad del Viento",
+    "sunrise": "Amanecer",
+    "sunset": "Puesta de sol",
+    "time": "Hora",
+    "temperature": "Temperatura",
+    "description": "Descripción",
+    "precipitation": "Precipitación",
+    "actual": "Real",
+    "details": "Detalles",
+    "morning": "Mañana",
+    "day": "Día",
+    "evening": "Noche",
+    "night": "Noche"
+  }
+}

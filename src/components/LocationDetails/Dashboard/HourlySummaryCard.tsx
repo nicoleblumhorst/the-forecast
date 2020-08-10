@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core';
 import { DashboardCard, WeatherTileContainer } from '../styles';
 import { CardActionsOnTheRight } from '../../shared/styles';
+import {useTranslation} from "react-i18next";
 
 interface Props {
   data: CurrentWeather[] | undefined;
@@ -18,9 +19,11 @@ interface Props {
 
 function HourlySummaryCard({ data }: Props) {
   const match = useRouteMatch();
+  const { t } = useTranslation();
+
   return (
     <DashboardCard variant="outlined">
-      <CardHeader title="Weather by the Hour" />
+      <CardHeader title={t('location-details.weather-hour')} />
       <CardContent className="weather-tile-container">
         <WeatherTileContainer>
           {data?.slice(0, 5)?.map((hour) => (
@@ -43,9 +46,7 @@ function HourlySummaryCard({ data }: Props) {
             disableElevation
             component={Link}
             to={`${match.url}/by/hour`}
-          >
-            Get More Info
-          </Button>
+          >{t('more-info')}</Button>
         </CardActionsOnTheRight>
       </CardActionArea>
     </DashboardCard>

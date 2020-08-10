@@ -8,6 +8,7 @@ import { theme } from './theme';
 import { WeatherReducer } from './reducers/weather';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import './i18n';
 
 const store = createStore(
   WeatherReducer,

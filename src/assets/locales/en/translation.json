@@ -1,0 +1,48 @@
+{
+  "title": "The Forecast",
+  "search": "Search",
+  "more-info": "Get More Info",
+  "common": {
+    "feels-like": "Feels Like",
+    "humidity": "Humidity"
+  },
+  "error": {
+    "something-went-wrong": "Something went wrong."
+  },
+  "not-found": {
+    "page-not-found": "Page Not Found",
+    "page-not-found-detail": "No idea what you were looking for, but it ain't here"
+  },
+  "add-location": {
+    "location-label": "Location",
+    "location-placeholder": "try London or 123 Main Street, New York City",
+    "multiple-locations-found": "We found a few locations that matched your search. Let us know which one you would like to see the weather for.",
+    "only-three-locations-supported": "We currently only support 3 locations at once, please choose one location to remove before adding a new location.",
+    "this-one": "This one!"
+  },
+  "landing": {
+    "high": "High",
+    "low": "Low"
+  },
+  "location-details" : {
+    "current-weather": "Current Weather",
+    "current-weather-in": "Current Weather in {{location}}",
+    "as-of": "As of {{time}}",
+    "weather-hour": "Weather by the Hour",
+    "weather-daily": "Weather for the Rest of the Week",
+    "wind-direction": "Wind Direction ",
+    "wind-speed": "Wind Speed ",
+    "sunrise": "Sunrise ",
+    "sunset": "Sunset ",
+    "time": "Time",
+    "temperature": "Temperature",
+    "description": "Description",
+    "precipitation": "Precipitation",
+    "actual": "Actual",
+    "details": "Details",
+    "morning": "Morning",
+    "day": "Day",
+    "evening": "Evening",
+    "night": "Night"
+  }
+}

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button, CircularProgress, Table, TextField } from '@material-ui/core';
+import { Button, Table, TextField } from '@material-ui/core';
 
 export const StyledForm = styled.form`
   display: flex;
@@ -36,4 +36,15 @@ export const ResultsContainer = styled.div`
 export const StyledTable = styled(Table)`
   width: auto;
   margin: 0px auto;
+`;
+
+export const WarningBanner = styled.p`
+  color: red;
+  text-align: center
+`;
+
+export const StyledCurrentLocation = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

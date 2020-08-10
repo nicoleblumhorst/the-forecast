@@ -1,14 +1,15 @@
-import React, { ErrorInfo } from 'react';
+import React, { Component, ErrorInfo } from 'react';
+import { withTranslation, WithTranslation } from 'react-i18next';
 
-interface Props {
-  error: Error;
+interface Props extends WithTranslation {
+  error?: Error;
 }
 
 interface State {
   hasError: boolean;
 }
 
-export default class ErrorBoundary extends React.Component {
+class ErrorBoundary extends Component<WithTranslation> {
   public state: State;
 
   constructor(props: Props) {
@@ -25,10 +26,13 @@ export default class ErrorBoundary extends React.Component {
   }
 
   render() {
+    const t = this.props.t;
     if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
+      return <h1>{t('error.something-went-wrong')}</h1>;
     }
 
     return this.props.children;
   }
 }
+
+export default withTranslation()(ErrorBoundary)

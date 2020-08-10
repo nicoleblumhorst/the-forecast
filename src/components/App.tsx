@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import '../css/weather-icons.css';
+import '../assets/css/weather-icons.css';
 import Header from './Header';
 import Landing from './Landing';
 import LocationDetails from './LocationDetails';

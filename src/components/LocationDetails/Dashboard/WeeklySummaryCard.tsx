@@ -12,6 +12,7 @@ import {
 import Moment from 'react-moment';
 import { DashboardCard, WeatherTileContainer } from '../styles';
 import { CardActionsOnTheRight } from '../../shared/styles';
+import {useTranslation} from "react-i18next";
 
 interface Props {
   data: DailyForcast[] | undefined;
@@ -19,12 +20,13 @@ interface Props {
 
 function WeeklySummaryCard({ data }: Props) {
   const match = useRouteMatch();
+  const { t } = useTranslation();
 
   const date = data ? new Date((data[0]?.dt || 0) * 1000) : new Date();
   return (
     <DashboardCard variant="outlined">
       <CardHeader
-        title="Weather for the Rest of the Week"
+        title={t('location-details.weather-daily')}
         subheader={<Moment className="time" date={date} format="M/D/YY" />}
       />
       <CardContent>
@@ -49,9 +51,7 @@ function WeeklySummaryCard({ data }: Props) {
             disableElevation
             component={Link}
             to={`${match.url}/by/day`}
-          >
-            Get More Info
-          </Button>
+          >{t('more-info')} </Button>
         </CardActionsOnTheRight>
       </CardActionArea>
     </DashboardCard>

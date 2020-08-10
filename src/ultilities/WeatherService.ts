@@ -2,10 +2,10 @@ import axios from 'axios';
 import {CurrentWeatherRS} from '../models/rest/weather/CurrentWeatherRS';
 import {OneCallRS} from '../models/rest/weather/OneCallRS';
 
-import fakeData from '../data/onecall.json';
-import christchurchFakeData from '../data/weather/2193732.json';
-import londonFakeData from '../data/weather/2643743.json';
-import stPetersFakeData from '../data/weather/4407237.json';
+import fakeData from '../assets/data/onecall.json';
+import christchurchFakeData from '../assets/data/weather/2193732.json';
+import londonFakeData from '../assets/data/weather/2643743.json';
+import stPetersFakeData from '../assets/data/weather/4407237.json';
 
 export class WeatherService {
   private BASE_URL = 'http://api.openweathermap.org/data/2.5';
