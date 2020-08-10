@@ -10,7 +10,7 @@ I learned the basics of React JS, but I wanted to practice a bit more and learn 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Dev Scripts
+### Scripts
 
 In the project directory, you can run:
 
