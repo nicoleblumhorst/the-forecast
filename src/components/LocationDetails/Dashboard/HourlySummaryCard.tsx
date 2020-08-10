@@ -33,6 +33,7 @@ function HourlySummaryCard({ data }: Props) {
               timeFormat="hA"
               temp={hour.temp}
               icon={hour.weather[0]?.id}
+              iconCategory={hour.weather[0]?.main}
               precip={hour.pop}
             />
           ))}

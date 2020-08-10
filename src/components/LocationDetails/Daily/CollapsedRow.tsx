@@ -64,11 +64,6 @@ function CollapsedRow({ data }: Props) {
         </HalfTableStyled>
         <OtherHalfStyled>
           <div>
-            <i className={`wi wi-humidity`} />
-            &nbsp;
-            <Percentage percentage={data.humidity} />
-          </div>
-          <div>
             <i className={`wi wi-sunrise`} />
             &nbsp;
             <Moment date={new Date(data.sunrise * 1000)} format="h:mmA" />

@@ -4,6 +4,7 @@ import { TableCell, TableRow } from '@material-ui/core';
 import Temperature from '../../shared/Temperature';
 import Percentage from '../../shared/Percentage';
 import { CurrentWeather } from '../../../models/rest/weather/CurrentWeather';
+import {MediumWeatherIcon, SmallWeatherIcon, WeatherIcon} from "../../shared/styles";
 
 type Props = {
   data: CurrentWeather;
@@ -21,17 +22,15 @@ function Row({ data }: Props) {
       </TableCell>
       <TableCell align="center">
         <p>
-          <i className={`wi wi-owm-${data.weather[0]?.id}`}></i>{' '}
+          <SmallWeatherIcon className={`wi wi-owm-${data.weather[0]?.id} ${data.weather[0]?.main.toLowerCase()}`}/>
+          {' '}
           {data.weather[0].description}
         </p>
       </TableCell>
       <TableCell align="center">
-        <i className={`wi wi-raindrop`}></i>{' '}
         <Percentage percentage={data.pop} />
       </TableCell>
       <TableCell align="center">
-        <i className={`wi wi-humidity`} />
-        &nbsp;
         <Percentage percentage={data.humidity} />
       </TableCell>
     </TableRow>

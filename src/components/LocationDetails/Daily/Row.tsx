@@ -15,6 +15,7 @@ import { DailyForcast } from '../../../models/rest/weather/DailyForcast';
 import { CollapsableTableRow } from '../styles';
 import { makeStyles } from '@material-ui/core/styles';
 import CollapsedRow from './CollapsedRow';
+import {SmallWeatherIcon} from "../../shared/styles";
 
 type Props = {
   data: DailyForcast;
@@ -44,13 +45,16 @@ function Row({ data }: Props) {
         </TableCell>
         <TableCell align="center">
           <p>
-            <i className={`wi wi-owm-${data.weather[0]?.id}`}></i>{' '}
+            <SmallWeatherIcon className={`wi wi-owm-${data.weather[0]?.id} ${data.weather[0]?.main.toLowerCase()}`}/>
+            {' '}
             {data.weather[0].description}
           </p>
         </TableCell>
         <TableCell align="center">
-          <i className={`wi wi-raindrop`}></i>{' '}
           <Percentage percentage={data.pop} />
+        </TableCell>
+        <TableCell align="center">
+          <Percentage percentage={data.humidity} />
         </TableCell>
         <TableCell>
           <IconButton size="small" onClick={() => setOpen(!open)}>

@@ -31,14 +31,15 @@ function WeeklySummaryCard({ data }: Props) {
       />
       <CardContent>
         <WeatherTileContainer>
-          {data?.slice(0, 5)?.map((hour) => (
+          {data?.slice(0, 5)?.map((day) => (
             <WeatherTile
-              key={hour.dt.toString()}
-              utcSeconds={hour.dt}
+              key={day.dt.toString()}
+              utcSeconds={day.dt}
               timeFormat="M/D"
-              temp={hour.temp.max}
-              icon={hour.weather[0]?.id}
-              precip={hour.pop}
+              temp={day.temp.max}
+              icon={day.weather[0]?.id}
+              iconCategory={day.weather[0]?.main}
+              precip={day.pop}
             />
           ))}
         </WeatherTileContainer>

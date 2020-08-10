@@ -2,7 +2,7 @@ import React from 'react';
 import Moment from 'react-moment';
 import Temperature from '../../shared/Temperature';
 import Percentage from '../../shared/Percentage';
-import { MediumIcon } from '../../shared/styles';
+import { MediumWeatherIcon } from '../../shared/styles';
 import { WeatherTile as StyleWeatherTile } from '../styles';
 
 type Props = {
@@ -10,6 +10,7 @@ type Props = {
   timeFormat: string;
   temp: number;
   icon: number;
+  iconCategory: string;
   precip: number;
 };
 
@@ -23,7 +24,7 @@ function WeatherTile(props: Props) {
       />
       <Temperature temp={props.temp} />
       <p>
-        <MediumIcon className={`wi wi-owm-${props.icon}`}></MediumIcon>
+        <MediumWeatherIcon className={`wi wi-owm-${props.icon} ${props.iconCategory.toLowerCase()}`}></MediumWeatherIcon>
       </p>
       <div>
         <i className={`wi wi-raindrop`}></i>{' '}

@@ -44,11 +44,11 @@ export const CollapsableTableRow = styled(TableRow)`
 `;
 
 export const HalfTableStyled = styled(Table)`
-  width: 45%;
+  width: 60%;
 `;
 
 export const OtherHalfStyled = styled.div`
-  width: 45%;
+  width: 35%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -62,4 +62,5 @@ export const CurrentWeatherCardContent = styled(CardContent)`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
 `;

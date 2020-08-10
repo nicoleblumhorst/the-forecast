@@ -2,9 +2,7 @@
 
 ## About the App
 
-
 I learned the basics of React JS, but I wanted to practice a bit more and learn about more specific libraries (such as axios, Redux, react-i18next, react-hook-form, Material UI, etc.). In order to do that, I built a little weather app that lets you view current and future forcast for 3 different locations.
-
 
 ## Dev Info
 

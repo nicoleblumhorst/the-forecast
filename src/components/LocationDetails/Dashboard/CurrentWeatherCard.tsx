@@ -4,7 +4,7 @@ import moment from 'moment';
 import Temperature from '../../shared/Temperature';
 import { CurrentWeather } from '../../../models/rest/weather/CurrentWeather';
 import { DashboardCard, CurrentWeatherCardContent } from '../styles';
-import { LargeIcon } from '../../shared/styles';
+import { LargeWeatherIcon } from '../../shared/styles';
 import Percentage from '../../shared/Percentage';
 import Moment from 'react-moment';
 import {useTranslation} from "react-i18next";
@@ -22,11 +22,11 @@ const CurrentWeatherCard = ({ data, name }: Props) => {
     <DashboardCard variant="outlined">
       <CardHeader title={name ? t('location-details.current-weather-in', {location: name}) : t('location-details.current-weather')} subheader={t('location-details.as-of', {time: asOf})} />
       <CurrentWeatherCardContent className="weather-tile-container">
-        <div>
-          <LargeIcon
-            className={`wi wi-owm-${data?.weather[0]?.id}`}
-          ></LargeIcon>
-          <p>{data?.weather[0]?.description}</p>
+        <div style={{ textAlign: "center" }}>
+          <LargeWeatherIcon
+            className={`wi wi-owm-${data?.weather[0]?.id} ${data?.weather[0]?.main.toLowerCase()}`}
+          ></LargeWeatherIcon>
+          <p style={{ textTransform: "uppercase" }}>{data?.weather[0]?.description}</p>
         </div>
         <div>
           <Temperature temp={data?.temp} />

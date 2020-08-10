@@ -40,9 +40,6 @@ export const StyledCardContent = styled(CardContent)`
     color: gray;
     font-size: 20px;
   }
-  i {
-    margin-bottom: 10px;
-  }
   p,
   h3,
   h4 {

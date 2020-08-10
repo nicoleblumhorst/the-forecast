@@ -28,6 +28,7 @@ function Daily({ data }: Props) {
             <TableCell align="center">{t('location-details.temperature')}</TableCell>
             <TableCell align="center">{t('location-details.description')}</TableCell>
             <TableCell align="center">{t('location-details.precipitation')}</TableCell>
+            <TableCell align="center">{t('common.humidity')}</TableCell>
             <TableCell />
           </TableRow>
         </TableHead>

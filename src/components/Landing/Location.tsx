@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { CurrentWeatherRS } from '../../models/rest/weather/CurrentWeatherRS';
 import { Button, CardActionArea } from '@material-ui/core';
 import { Divider, GridDiv, StyledCard, StyledCardContent } from './styles';
-import { CardActionsOnTheRight, LargeIcon } from '../shared/styles';
+import {CardActionsOnTheRight, LargeWeatherIcon, WeatherIcon} from '../shared/styles';
 import Percentage from '../shared/Percentage';
 import {useTranslation} from "react-i18next";
 
@@ -24,9 +24,9 @@ function Location({ locationData }: Props) {
       <StyledCardContent>
         <h3>{locationData.name}</h3>
         <h4>{locationData.sys.country}</h4>
-        <LargeIcon
-          className={`wi wi-owm-${locationData.weather[0]?.id}`}
-        ></LargeIcon>
+        <LargeWeatherIcon
+          className={`wi wi-owm-${locationData.weather[0]?.id} ${locationData.weather[0]?.main.toLowerCase()}`}
+        ></LargeWeatherIcon>
         <Divider />
         <GridDiv>
           <span className="temp">
